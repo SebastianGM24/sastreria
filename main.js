@@ -7,7 +7,7 @@
   document.documentElement.classList.add('js');
 
   var WA_NUMBER = '34626839938';            // WhatsApp de la tienda
-  var IMG_PATH = '../img/';                 // carpeta de imágenes
+  var IMG_PATH = 'img/';                 // carpeta de imágenes
   var IMG_EXTS = ['.jpg', '.jpeg', '.png', '.webp', '.JPG', '.JPEG', '.PNG', '.WEBP'];
   var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
