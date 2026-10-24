@@ -1,5 +1,5 @@
 /* =========================================================
-   MARTÍNEZ-PEÑALVER · Camisería — main.js
+   MARTÍNEZ-PEÑALVER · Trajes — main.js
    ========================================================= */
 (function () {
   'use strict';
@@ -32,17 +32,12 @@
     'camiseria': 'imagen1 blancoynegro',
     'cat-trajes': 'imagen8',
     'cat-chaques': 'imagen12',
-    'cat-smoking': 'imagen7',
     'cat-complementos': 'imagen2',
     'guia-chaque': 'imagen4',
-    'guia-smoking': 'imagen5',
     'guia-traje': 'imagen11',
     'prod-chaque-negro': 'imagen12',
     'prod-chaque-azul': 'imagen11',
     'prod-chaque-gris': 'imagen3',
-    'prod-smoking-azul': 'imagen7',
-    'prod-smoking-negro': 'imagen4',
-    'prod-smoking-verde': 'imagen14',
     'prod-traje-azul': 'imagen8',
     'prod-traje-beige': 'imagen10',
     'prod-traje-burdeos': 'imagen9',
@@ -150,18 +145,15 @@
      CATÁLOGO (edita aquí nombres, precios y fotos)
      --------------------------------------------------------- */
   var PRODUCTS = [
-    { id: 1,  cat: 'chaque',  catName: 'Chaqué',   name: 'Chaqué negro clásico',      price: 298, old: 420, offer: true, img: 'prod-chaque-negro',  c1: '#2b2b2b', c2: '#0c0c0c', desc: 'Chaqué de corte tradicional en paño negro, con pantalón de raya diplomática. La máxima etiqueta para ceremonias de mañana y tarde.', list: ['Chaqué, chaleco y pantalón de raya', 'Cuello y solapa clásicos', 'Ajustes a tu medida', 'Disponible en alquiler'] },
-    { id: 2,  cat: 'chaque',  catName: 'Chaqué',   name: 'Chaqué azul real',           price: 298, old: 420, offer: true, img: 'prod-chaque-azul',   c1: '#1d4aa8', c2: '#0b2260', desc: 'Chaqué en azul vibrante, una de las tendencias de la temporada. Perfecto para novios que quieren destacar sin perder la etiqueta.', list: ['Chaleco cruzado a juego', 'Corte entallado', 'Combina con corbata de cachemir', 'Disponible en alquiler'] },
-    { id: 3,  cat: 'chaque',  catName: 'Chaqué',   name: 'Chaqué gris marengo',        price: 298, old: 420, offer: true, img: 'prod-chaque-gris',   c1: '#6a6f75', c2: '#2f3236', desc: 'Chaqué en gris marengo con chaleco cruzado. Una versión más actual del clásico para bodas de día.', list: ['Total grey o con pantalón de raya', 'Chaleco cruzado', 'Camisa blanca de cuello italiano', 'Disponible en alquiler'] },
-    { id: 4,  cat: 'smoking', catName: 'Esmoquin', name: 'Esmoquin azul noche',        price: 298, old: 410, offer: true, img: 'prod-smoking-azul',  c1: '#1a2a5c', c2: '#080f26', desc: 'Esmoquin azul noche con solapa de raso. Una alternativa elegante al negro para ceremonias y cenas de gala.', list: ['Solapa de raso', 'Chaleco o fajín', 'Pantalón con galón', 'Disponible en alquiler'] },
-    { id: 5,  cat: 'smoking', catName: 'Esmoquin', name: 'Esmoquin negro de raso',     price: 298, old: 410, offer: true, img: 'prod-smoking-negro', c1: '#202020', c2: '#050505', desc: 'El «black tie» de toda la vida: chaqueta de un botón con solapa de raso, para eventos de noche.', list: ['Un botón y solapa de raso', 'Pajarita incluida en el pack', 'Camisa de puños franceses opcional', 'Disponible en alquiler'] },
-    { id: 6,  cat: 'smoking', catName: 'Esmoquin', name: 'Esmoquin verde botella',     price: 340, img: 'prod-smoking-verde', c1: '#1f4d36', c2: '#0a2217', desc: 'Para quien quiere un esmoquin con personalidad. Verde profundo que conecta con la tendencia de colores intensos.', list: ['Paño ligero', 'Solapa de raso', 'Chaleco beige opcional', 'Bajo pedido'] },
-    { id: 7,  cat: 'traje',   catName: 'Traje',    name: 'Traje azul de tres piezas',  price: 245, img: 'prod-traje-azul',    c1: '#2f5fae', c2: '#122a5a', desc: 'Traje de paño azul con chaleco. El color estrella en bodas e invitados: versátil, favorecedor y siempre elegante.', list: ['Americana, chaleco y pantalón', 'Paño de lana fría', 'Corte slim o regular', 'Compra y alquiler'] },
-    { id: 8,  cat: 'traje',   catName: 'Traje',    name: 'Traje beige arena',          price: 235, img: 'prod-traje-beige',   c1: '#c8b48a', c2: '#8a7549', desc: 'Beige y tonos tierra: la gran apuesta para bodas de día y verano. Ligero y muy fotogénico.', list: ['Dos botones', 'Tejido texturizado', 'Ideal con corbata burdeos', 'Compra y alquiler'] },
-    { id: 9,  cat: 'traje',   catName: 'Traje',    name: 'Traje burdeos',              price: 260, img: 'prod-traje-burdeos', c1: '#7a2338', c2: '#3b0f1c', desc: 'Burdeos intenso para los que quieren salirse del trío de azul, negro y gris. Un traje con carácter.', list: ['Solapa de pico', 'Forro a contraste', 'Corbata violeta o dorada', 'Compra'] },
-    { id: 10, cat: 'traje',   catName: 'Traje',    name: 'Traje cruzado azul marino',  price: 285, img: 'prod-traje-cruzado', c1: '#1b2a52', c2: '#0a1124', desc: 'Doble botonadura en azul marino. Silueta clásica con aire contemporáneo, ideal para estilizar.', list: ['Doble botonadura', 'Solapa de pico', 'Botones de nácar', 'Compra y alquiler'] },
-    { id: 11, cat: 'traje',   catName: 'Traje',    name: 'Traje gris de cuadros',      price: 255, img: 'prod-traje-cuadros', c1: '#9a9fa5', c2: '#4b5157', desc: 'Gris con cuadro ventana en tres piezas. Un estampado sutil, muy en línea con las tendencias de la temporada.', list: ['Chaleco a juego', 'Estampado sutil', 'Perfecto con corbata azul', 'Compra'] },
-    { id: 12, cat: 'complementos', catName: 'Complementos', name: 'Pajaritas de seda',     price: 24, img: 'prod-pajaritas', c1: '#6e1f4f', c2: '#2a0b1e', desc: 'Pajaritas de seda en azul, verde, burdeos, plata y estampados. Para esmoquin, chaqué o traje.', list: ['Varios colores', 'Ajustables', 'Disponible en tienda'] },
+    { id: 1,  cat: 'chaque',  catName: 'Chaqué',   name: 'Chaqué negro clásico',      price: 298, old: 420, offer: true, img: 'prod-chaque-negro',  c1: '#2b2b2b', c2: '#0c0c0c', desc: 'Chaqué de corte tradicional en paño negro, con pantalón de raya diplomática. La máxima etiqueta para ceremonias de mañana y tarde.', list: ['Chaqué, chaleco y pantalón de raya', 'Cuello y solapa clásicos', 'Ajustes a tu medida', 'Prueba en tienda'] },
+    { id: 2,  cat: 'chaque',  catName: 'Chaqué',   name: 'Chaqué azul real',           price: 298, old: 420, offer: true, img: 'prod-chaque-azul',   c1: '#1d4aa8', c2: '#0b2260', desc: 'Chaqué en azul vibrante, una de las tendencias de la temporada. Perfecto para novios que quieren destacar sin perder la etiqueta.', list: ['Chaleco cruzado a juego', 'Corte entallado', 'Combina con corbata de cachemir', 'Prueba en tienda'] },
+    { id: 3,  cat: 'chaque',  catName: 'Chaqué',   name: 'Chaqué gris marengo',        price: 298, old: 420, offer: true, img: 'prod-chaque-gris',   c1: '#6a6f75', c2: '#2f3236', desc: 'Chaqué en gris marengo con chaleco cruzado. Una versión más actual del clásico para bodas de día.', list: ['Total grey o con pantalón de raya', 'Chaleco cruzado', 'Camisa blanca de cuello italiano', 'Prueba en tienda'] },
+    { id: 7,  cat: 'traje',   catName: 'Traje',    name: 'Traje azul de tres piezas',  price: 245, img: 'prod-traje-azul',    c1: '#2f5fae', c2: '#122a5a', desc: 'Traje de paño azul con chaleco. El color estrella en bodas e invitados: versátil, favorecedor y siempre elegante.', list: ['Americana, chaleco y pantalón', 'Paño de lana fría', 'Corte slim o regular', 'Ajustes a tu medida'] },
+    { id: 8,  cat: 'traje',   catName: 'Traje',    name: 'Traje beige arena',          price: 235, img: 'prod-traje-beige',   c1: '#c8b48a', c2: '#8a7549', desc: 'Beige y tonos tierra: la gran apuesta para bodas de día y verano. Ligero y muy fotogénico.', list: ['Dos botones', 'Tejido texturizado', 'Ideal con corbata burdeos', 'Ajustes a tu medida'] },
+    { id: 9,  cat: 'traje',   catName: 'Traje',    name: 'Traje burdeos',              price: 260, img: 'prod-traje-burdeos', c1: '#7a2338', c2: '#3b0f1c', desc: 'Burdeos intenso para los que quieren salirse del trío de azul, negro y gris. Un traje con carácter.', list: ['Solapa de pico', 'Forro a contraste', 'Corbata violeta o dorada', 'Ajustes a tu medida'] },
+    { id: 10, cat: 'traje',   catName: 'Traje',    name: 'Traje cruzado azul marino',  price: 285, img: 'prod-traje-cruzado', c1: '#1b2a52', c2: '#0a1124', desc: 'Doble botonadura en azul marino. Silueta clásica con aire contemporáneo, ideal para estilizar.', list: ['Doble botonadura', 'Solapa de pico', 'Botones de nácar', 'Ajustes a tu medida'] },
+    { id: 11, cat: 'traje',   catName: 'Traje',    name: 'Traje gris de cuadros',      price: 255, img: 'prod-traje-cuadros', c1: '#9a9fa5', c2: '#4b5157', desc: 'Gris con cuadro ventana en tres piezas. Un estampado sutil, muy en línea con las tendencias de la temporada.', list: ['Chaleco a juego', 'Estampado sutil', 'Perfecto con corbata azul', 'Ajustes a tu medida'] },
+    { id: 12, cat: 'complementos', catName: 'Complementos', name: 'Pajaritas de seda',     price: 24, img: 'prod-pajaritas', c1: '#6e1f4f', c2: '#2a0b1e', desc: 'Pajaritas de seda en azul, verde, burdeos, plata y estampados. Para chaqué o traje.', list: ['Varios colores', 'Ajustables', 'Disponible en tienda'] },
     { id: 13, cat: 'complementos', catName: 'Complementos', name: 'Tirantes de lujo',      price: 29, img: 'prod-tirantes',  c1: '#2a2a2a', c2: '#0f0f0f', desc: 'Tirantes elásticos en negro, azul, gris y beige. El detalle clásico que remata un look de gala.', list: ['Varios colores', 'Herrajes plateados', 'Disponible en tienda'] },
     { id: 14, cat: 'complementos', catName: 'Complementos', name: 'Camisa a medida',       price: 69, img: 'prod-camisa',    c1: '#d9dde2', c2: '#8d96a0', desc: 'Camisa blanca o de color, a medida o de confección. Con cuello italiano, cuello para pajarita o puños franceses.', list: ['Tejidos de algodón', 'Cuello y puño a elegir', 'Hecha a tu medida'] },
     { id: 15, cat: 'complementos', catName: 'Complementos', name: 'Corbatas y plastrones', price: 35, img: 'prod-corbatas',  c1: '#2f4f8a', c2: '#101e3a', desc: 'Corbatas de cachemir, gris perla para ceremonias y plastrones para chaqué. Anchas, como manda el protocolo.', list: ['Cachemir y seda', 'Plastrón para chaqué', 'Pañuelos a juego'] },
@@ -173,14 +165,14 @@
      --------------------------------------------------------- */
   var PALETTE = [
     { name: 'Azul real',      hex: '#1d4aa8', tag: 'Color estrella',     filter: 'traje',   desc: 'El azul sigue siendo el gran protagonista de bodas y ceremonias en 2026, desde el azul noche más sobrio hasta los tonos eléctricos y vibrantes.', tie: ['Burdeos', '#7a2338'],   pocket: ['Blanco', '#f4f1e8'],      shirt: 'Blanca',               shoes: 'Marrón oscuro',   ideal: 'bodas de día, invitados y novios' },
-    { name: 'Azul noche',     hex: '#16254f', tag: 'Elegancia nocturna', filter: 'smoking', desc: 'Más profundo que el negro y mucho más sofisticado bajo las luces. Es la alternativa de moda para el esmoquin y las ceremonias de tarde y noche.', tie: ['Plata', '#bfc4cc'],     pocket: ['Gris perla', '#d5d8dd'],  shirt: 'Blanca de esmoquin',   shoes: 'Negro',           ideal: 'esmoquin, bodas de tarde y noche' },
+    { name: 'Azul noche',     hex: '#16254f', tag: 'Elegancia nocturna', filter: 'traje', desc: 'Más profundo que el negro y mucho más sofisticado bajo las luces. Es la alternativa de moda al negro para ceremonias de tarde y noche.', tie: ['Plata', '#bfc4cc'],     pocket: ['Gris perla', '#d5d8dd'],  shirt: 'Blanca',   shoes: 'Negro',           ideal: 'bodas de tarde y eventos de noche' },
     { name: 'Beige arena',    hex: '#c9b48b', tag: 'Tonos tierra',       filter: 'traje',   desc: 'Los tonos tierra se consolidan como base elegante. El beige es un fijo en los trajes de invitado: ligero, luminoso y muy favorecedor.', tie: ['Azul', '#2a4d8f'],      pocket: ['Burdeos', '#8a2a3c'],     shirt: 'Blanca o celeste',     shoes: 'Cognac',          ideal: 'bodas de día, primavera y verano' },
     { name: 'Marrón chocolate', hex: '#5b3a2a', tag: 'El marrón, nuevo negro', filter: 'traje', desc: 'Del chocolate al caramelo, los marrones se imponen como base de looks elegantes y atemporales. Calidez y presencia para otoño e invierno.', tie: ['Crema', '#e8dcc0'],     pocket: ['Naranja suave', '#d98c4a'], shirt: 'Crema o celeste',    shoes: 'Marrón',          ideal: 'eventos de tarde en otoño e invierno' },
     { name: 'Burdeos',        hex: '#6e1f35', tag: '«Berry tones»',      filter: 'traje',   desc: 'Burdeos, granate y malva: colores profundos y maduros, con un aire de dandi. Perfectos para quien quiere salirse del azul, el negro y el gris.', tie: ['Azul marino', '#1b2a52'], pocket: ['Gris perla', '#c9ccd1'], shirt: 'Blanca',              shoes: 'Negro',           ideal: 'invitados atrevidos y cenas' },
     { name: 'Verde botella',  hex: '#1f4d36', tag: 'Color con carácter', filter: 'traje',   desc: 'Un verde intenso y elegante que destaca sin estridencias. Funciona muy bien con chaleco beige y complementos dorados.', tie: ['Dorado', '#c9a227'],    pocket: ['Beige', '#d8c9a3'],       shirt: 'Blanca o marfil',      shoes: 'Marrón oscuro',   ideal: 'bodas de tarde y otoño' },
     { name: 'Gris marengo',   hex: '#474c52', tag: 'Chaqué «total grey»', filter: 'chaque', desc: 'El gris oscuro es el clásico del chaqué moderno. Con chaleco cruzado y corbata azul consigue un look sobrio, actual y muy elegante.', tie: ['Azul', '#2f5fae'],      pocket: ['Blanco', '#f4f1e8'],      shirt: 'Blanca de cuello italiano', shoes: 'Negro',      ideal: 'chaqué de día, ceremonias y trabajo' },
     { name: 'Azul hielo',     hex: '#b6c8da', tag: 'Neutro emocional',   filter: 'traje',   desc: 'Un azul frío y claro, entre el pastel y el glacial, que funciona como neutro y refresca cualquier look de primavera o verano.', tie: ['Azul marino', '#1b2a52'], pocket: ['Blanco', '#f4f1e8'],   shirt: 'Blanca',               shoes: 'Marrón claro',    ideal: 'ceremonias de día en primavera y verano' },
-    { name: 'Negro',          hex: '#161616', tag: 'Black tie',          filter: 'smoking', desc: 'El clásico que nunca falla. Solapa de raso, pajarita y camisa de esmoquin para la máxima elegancia en eventos de gala.', tie: ['Plata', '#c0c4ca'],     pocket: ['Blanco', '#f4f1e8'],      shirt: 'Blanca de esmoquin',   shoes: 'Charol negro',    ideal: 'esmoquin, galas y bodas de noche' },
+    { name: 'Negro',          hex: '#161616', tag: 'Clásico atemporal',          filter: 'chaque', desc: 'El clásico que nunca falla. Sobrio y elegante, perfecto para el chaqué y las ceremonias más formales.', tie: ['Plata', '#c0c4ca'],     pocket: ['Blanco', '#f4f1e8'],      shirt: 'Blanca',   shoes: 'Negro',    ideal: 'chaqué y ceremonias formales' },
     { name: 'Marfil piedra',  hex: '#e6dfcc', tag: 'Inspiración japonesa', filter: 'traje', desc: 'Siluetas depuradas y colores como el marfil o la piedra para un novio sereno, moderno y distinto.', tie: ['Verde', '#2f5a43'],      pocket: ['Verde claro', '#a9c0a8'], shirt: 'Blanca',               shoes: 'Marrón claro',    ideal: 'novios con estilo sereno y moderno' }
   ];
 
@@ -205,7 +197,7 @@
     { f: 'imagen7',                t: 'Sentado con clase',            k: 'color' },
     { f: 'imagen5',                t: 'Corbata y camisa blanca',      k: 'color' },
     { f: 'imagen9',                t: 'Chaqueta colgada, detalle',    k: 'color' },
-    { f: 'imagen14',               t: 'Foco y esmoquin',              k: 'color' },
+    { f: 'imagen14',               t: 'Silueta bajo el foco',              k: 'color' },
     { f: 'imagen1',                t: 'Entrada de gala',              k: 'color' }
   ];
 
@@ -357,7 +349,7 @@
   var modal = $('#modal');
   var state = { filter: 'all', q: '', sort: 'rec' };
 
-  function norm(s) { return String(s).toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, ''); }
+  function norm(s) { return String(s).toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, ''); }
 
   function visibleProducts() {
     var q = norm(state.q.trim());
@@ -516,45 +508,6 @@
 
     select(0, false);
     startAuto();
-  })();
-
-  /* ---------------------------------------------------------
-     Alquiler / compra
-     --------------------------------------------------------- */
-  (function pricing() {
-    var sw = $('#switch');
-    var pill = $('#switchPill');
-    var btns = $$('button', sw);
-    var prices = $$('.price[data-rent]');
-
-    function movePill() {
-      var a = $('button.active', sw);
-      pill.style.width = a.offsetWidth + 'px';
-      pill.style.transform = 'translateX(' + (a.offsetLeft - 5) + 'px)';
-    }
-    function animate(el, to) {
-      var from = Number(el.textContent) || 0;
-      if (reduceMotion) { el.textContent = to; return; }
-      var t0 = performance.now(), dur = 700;
-      (function step(now) {
-        var p = Math.min((now - t0) / dur, 1);
-        var e = 1 - Math.pow(1 - p, 3);
-        el.textContent = Math.round(from + (to - from) * e);
-        if (p < 1) requestAnimationFrame(step);
-      })(t0);
-    }
-    btns.forEach(function (b) {
-      b.addEventListener('click', function () {
-        btns.forEach(function (x) { x.classList.toggle('active', x === b); x.setAttribute('aria-selected', String(x === b)); });
-        movePill();
-        var mode = b.getAttribute('data-mode');
-        prices.forEach(function (p) { animate(p, Number(p.getAttribute('data-' + mode))); });
-      });
-    });
-    window.addEventListener('resize', movePill);
-    window.addEventListener('load', movePill);
-    if (document.fonts && document.fonts.ready) document.fonts.ready.then(movePill);
-    movePill();
   })();
 
   /* ---------------------------------------------------------
