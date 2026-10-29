@@ -11,12 +11,6 @@
   var IMG_EXTS = ['.jpg', '.jpeg', '.png', '.webp', '.JPG', '.JPEG', '.PNG', '.WEBP'];
   var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  /* Horario de citas (EDÍTALO con el horario real de la tienda) */
-  var HOURS = {
-    weekday:  ['10:00', '11:00', '12:00', '13:00', '17:00', '18:00', '19:00', '20:00'],
-    saturday: ['10:00', '11:00', '12:00', '13:00']
-  };
-
   var $ = function (s, c) { return (c || document).querySelector(s); };
   var $$ = function (s, c) { return Array.prototype.slice.call((c || document).querySelectorAll(s)); };
 
@@ -155,7 +149,7 @@
     { id: 11, cat: 'traje',   catName: 'Traje',    name: 'Traje gris de cuadros',      price: 255, img: 'prod-traje-cuadros', c1: '#9a9fa5', c2: '#4b5157', desc: 'Gris con cuadro ventana en tres piezas. Un estampado sutil, muy en línea con las tendencias de la temporada.', list: ['Chaleco a juego', 'Estampado sutil', 'Perfecto con corbata azul', 'Ajustes a tu medida'] },
     { id: 12, cat: 'complementos', catName: 'Complementos', name: 'Pajaritas de seda',     price: 24, img: 'prod-pajaritas', c1: '#6e1f4f', c2: '#2a0b1e', desc: 'Pajaritas de seda en azul, verde, burdeos, plata y estampados. Para chaqué o traje.', list: ['Varios colores', 'Ajustables', 'Disponible en tienda'] },
     { id: 13, cat: 'complementos', catName: 'Complementos', name: 'Tirantes de lujo',      price: 29, img: 'prod-tirantes',  c1: '#2a2a2a', c2: '#0f0f0f', desc: 'Tirantes elásticos en negro, azul, gris y beige. El detalle clásico que remata un look de gala.', list: ['Varios colores', 'Herrajes plateados', 'Disponible en tienda'] },
-    { id: 14, cat: 'complementos', catName: 'Complementos', name: 'Camisa a medida',       price: 69, img: 'prod-camisa',    c1: '#d9dde2', c2: '#8d96a0', desc: 'Camisa blanca o de color, a medida o de confección. Con cuello italiano, cuello para pajarita o puños franceses.', list: ['Tejidos de algodón', 'Cuello y puño a elegir', 'Hecha a tu medida'] },
+    { id: 14, cat: 'complementos', catName: 'Complementos', name: 'Camisas',                price: 69, img: 'prod-camisa',    c1: '#d9dde2', c2: '#8d96a0', desc: 'Camisas blancas o de color que se adaptan a tu estilo. Con cuello italiano, cuello para pajarita o puños franceses.', list: ['Tejidos de algodón', 'Cuello y puño a elegir', 'Para tu estilo'] },
     { id: 15, cat: 'complementos', catName: 'Complementos', name: 'Corbatas y plastrones', price: 35, img: 'prod-corbatas',  c1: '#2f4f8a', c2: '#101e3a', desc: 'Corbatas de cachemir, gris perla para ceremonias y plastrones para chaqué. Anchas, como manda el protocolo.', list: ['Cachemir y seda', 'Plastrón para chaqué', 'Pañuelos a juego'] },
     { id: 16, cat: 'complementos', catName: 'Complementos', name: 'Pañuelos y gemelos',    price: 18, img: 'prod-panuelos',  c1: '#a8872a', c2: '#5c4a12', desc: 'Pañuelos de bolsillo y gemelos para rematar el traje con un guiño de color y elegancia.', list: ['Pañuelos lisos y estampados', 'Gemelos plateados y dorados', 'Disponible en tienda'] }
   ];
@@ -164,7 +158,7 @@
      TENDENCIAS: paleta interactiva
      --------------------------------------------------------- */
   var PALETTE = [
-    { name: 'Azul real',      hex: '#1d4aa8', tag: 'Color estrella',     filter: 'traje',   desc: 'El azul sigue siendo el gran protagonista de bodas y ceremonias en 2026, desde el azul noche más sobrio hasta los tonos eléctricos y vibrantes.', tie: ['Burdeos', '#7a2338'],   pocket: ['Blanco', '#f4f1e8'],      shirt: 'Blanca',               shoes: 'Marrón oscuro',   ideal: 'bodas de día, invitados y novios' },
+    { name: 'Azul real',      hex: '#1d4aa8', tag: 'Color estrella',     filter: 'traje',   desc: 'El azul sigue siendo el gran protagonista de bodas y ceremonias en 2027, desde el azul noche más sobrio hasta los tonos eléctricos y vibrantes.', tie: ['Burdeos', '#7a2338'],   pocket: ['Blanco', '#f4f1e8'],      shirt: 'Blanca',               shoes: 'Marrón oscuro',   ideal: 'bodas de día, invitados y novios' },
     { name: 'Azul noche',     hex: '#16254f', tag: 'Elegancia nocturna', filter: 'traje', desc: 'Más profundo que el negro y mucho más sofisticado bajo las luces. Es la alternativa de moda al negro para ceremonias de tarde y noche.', tie: ['Plata', '#bfc4cc'],     pocket: ['Gris perla', '#d5d8dd'],  shirt: 'Blanca',   shoes: 'Negro',           ideal: 'bodas de tarde y eventos de noche' },
     { name: 'Beige arena',    hex: '#c9b48b', tag: 'Tonos tierra',       filter: 'traje',   desc: 'Los tonos tierra se consolidan como base elegante. El beige es un fijo en los trajes de invitado: ligero, luminoso y muy favorecedor.', tie: ['Azul', '#2a4d8f'],      pocket: ['Burdeos', '#8a2a3c'],     shirt: 'Blanca o celeste',     shoes: 'Cognac',          ideal: 'bodas de día, primavera y verano' },
     { name: 'Marrón chocolate', hex: '#5b3a2a', tag: 'El marrón, nuevo negro', filter: 'traje', desc: 'Del chocolate al caramelo, los marrones se imponen como base de looks elegantes y atemporales. Calidez y presencia para otoño e invierno.', tie: ['Crema', '#e8dcc0'],     pocket: ['Naranja suave', '#d98c4a'], shirt: 'Crema o celeste',    shoes: 'Marrón',          ideal: 'eventos de tarde en otoño e invierno' },
@@ -204,7 +198,7 @@
   /* ---------------------------------------------------------
      Año del pie
      --------------------------------------------------------- */
-  $('#year').textContent = new Date().getFullYear();
+  $('#year').textContent = '2027';
 
   /* ---------------------------------------------------------
      Cabecera, menú móvil y botón de subir
@@ -432,7 +426,7 @@
   /* ---------------------------------------------------------
      Tendencias: explorador de color + carrusel de tonos
      --------------------------------------------------------- */
-  (function colorExplorer() {
+  /* (function colorExplorer() {
     var stage = $('#stage');
     var track = $('#swatches');
     var current = -1, timer = null, userTouched = false;
@@ -508,7 +502,7 @@
 
     select(0, false);
     startAuto();
-  })();
+  })(); */
 
   /* ---------------------------------------------------------
      Guía de etiqueta (pestañas)
@@ -635,47 +629,11 @@
   });
 
   /* ---------------------------------------------------------
-     Cita: selector de día y hora + formulario → WhatsApp
+     Solicitud de información → WhatsApp
      --------------------------------------------------------- */
-  (function booking() {
-    var daysEl = $('#days');
-    var timesEl = $('#times');
-    var form = $('#cita');
+  (function informationForm() {
+    var form = $('#informacion');
     var note = $('#formNote');
-    var chosenDay = null, chosenTime = null;
-
-    var days = [];
-    var d = new Date(); d.setHours(12, 0, 0, 0);
-    while (days.length < 7) {
-      d = new Date(d.getTime() + 86400000);
-      if (d.getDay() !== 0) days.push(new Date(d.getTime()));   // sin domingos
-    }
-    daysEl.innerHTML = days.map(function (dt, i) {
-      var wd = dt.toLocaleDateString('es-ES', { weekday: 'short' }).replace('.', '');
-      var mo = dt.toLocaleDateString('es-ES', { month: 'short' }).replace('.', '');
-      return '<button type="button" class="slot day" role="option" data-i="' + i + '"><small>' + wd + '</small><b>' + dt.getDate() + '</b><small>' + mo + '</small></button>';
-    }).join('');
-
-    function renderTimes(dt) {
-      var hours = dt.getDay() === 6 ? HOURS.saturday : HOURS.weekday;
-      timesEl.innerHTML = hours.map(function (h) {
-        return '<button type="button" class="slot time" role="option" data-t="' + h + '">' + h + '</button>';
-      }).join('');
-      chosenTime = null;
-    }
-    timesEl.innerHTML = '<p class="muted">Elige primero un día.</p>';
-
-    daysEl.addEventListener('click', function (e) {
-      var b = e.target.closest('.day'); if (!b) return;
-      $$('.day', daysEl).forEach(function (x) { x.classList.toggle('active', x === b); });
-      chosenDay = days[Number(b.getAttribute('data-i'))];
-      renderTimes(chosenDay);
-    });
-    timesEl.addEventListener('click', function (e) {
-      var b = e.target.closest('.time'); if (!b) return;
-      $$('.time', timesEl).forEach(function (x) { x.classList.toggle('active', x === b); });
-      chosenTime = b.getAttribute('data-t');
-    });
 
     form.addEventListener('submit', function (e) {
       e.preventDefault();
@@ -692,23 +650,14 @@
         name: $('#f-name').value.trim(),
         phone: $('#f-phone').value.trim(),
         type: $('#f-type').value,
-        date: $('#f-date').value,
         msg: $('#f-msg').value.trim()
       };
-      var cita = '';
-      if (chosenDay) {
-        cita = '\nCita preferida: ' + chosenDay.toLocaleDateString('es-ES', { weekday: 'long', day: 'numeric', month: 'long' }) + (chosenTime ? ' a las ' + chosenTime : '') + '.';
-      }
-      var text = 'Hola, soy ' + data.name + '. Me interesa: ' + data.type + '.' + cita +
-        (data.date ? '\nFecha del evento: ' + data.date.split('-').reverse().join('/') + '.' : '') +
+      var text = 'Hola, soy ' + data.name + '. Quiero solicitar información sobre: ' + data.type + '.' +
         (data.msg ? '\n' + data.msg : '') +
         '\nMi teléfono: ' + data.phone;
       window.open('https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(text), '_blank', 'noopener');
       note.style.color = ''; note.textContent = '¡Gracias! Se ha abierto WhatsApp con tu mensaje.';
       form.reset();
-      $$('.slot', form).forEach(function (x) { x.classList.remove('active'); });
-      chosenDay = null; chosenTime = null;
-      timesEl.innerHTML = '<p class="muted">Elige primero un día.</p>';
     });
     $$('input, select', form).forEach(function (el) {
       el.addEventListener('input', function () { el.parentElement.classList.remove('error'); });
