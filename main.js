@@ -3,14 +3,14 @@
    ========================================================= */
 (function () {
   'use strict';
-
+ 
   document.documentElement.classList.add('js');
-
+ 
   var WA_NUMBER = '34626839938';            // WhatsApp de la tienda
   var IMG_PATH = 'img/';                 // carpeta de imágenes
   var IMG_EXTS = ['.jpg', '.jpeg', '.png', '.webp', '.JPG', '.JPEG', '.PNG', '.WEBP'];
   var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
+ 
   var $ = function (s, c) { return (c || document).querySelector(s); };
   var $$ = function (s, c) { return Array.prototype.slice.call((c || document).querySelectorAll(s)); };
 
@@ -19,59 +19,77 @@
      Para cambiar una foto, cambia el nombre de la derecha.
      --------------------------------------------------------- */
   var SLOTS = {
-    'hero-1': 'imagen13',
-    'hero-2': 'imagen14',
-    'hero-3': 'imagen6',
-    'oferta': 'imagen1',
-    'camiseria': 'imagen1 blancoynegro',
-    'cat-trajes': 'imagen8',
-    'cat-chaques': 'imagen12',
-    'cat-complementos': 'imagen2',
+    // Portada (fotos apaisadas, funcionan mejor en el hero)
+    'hero-1': 'imagen28',
+    'hero-2': 'imagen6',
+    'hero-3': 'imagen21',
+    'oferta': 'imagen21',
+    'camiseria': 'imagen29',
+ 
+    // Categorías
+    'cat-trajes': 'imagen14',
+    'cat-chaques': 'imagen4',
+    'cat-complementos': 'imagen24',
+ 
+    // Guía de etiqueta
     'guia-chaque': 'imagen4',
-    'guia-traje': 'imagen11',
-    'prod-chaque-negro': 'imagen12',
-    'prod-chaque-azul': 'imagen11',
-    'prod-chaque-gris': 'imagen3',
-    'prod-traje-azul': 'imagen8',
-    'prod-traje-beige': 'imagen10',
+    'guia-traje': 'imagen14',
+ 
+    // Productos
+    'prod-chaque-negro': 'imagen4',
+    'prod-chaque-azul': 'imagen16',
+    'prod-chaque-gris': 'imagen1',
+    'prod-traje-azul': 'imagen14',
+    'prod-traje-beige': 'imagen5',
     'prod-traje-burdeos': 'imagen9',
-    'prod-traje-cruzado': 'imagen5',
-    'prod-traje-cuadros': 'imagen6',
-    'prod-pajaritas': 'imagen2',
-    'prod-tirantes': 'imagen2 blancoynegro',
-    'prod-camisa': 'imagen10',
-    'prod-corbatas': 'imagen6 blanco y negro',
-    'prod-panuelos': 'imagen3 blancoynegro'
+    'prod-traje-cruzado': 'imagen19',
+    'prod-traje-cuadros': 'imagen10',
+    'prod-pajaritas': 'imagen3',
+    'prod-tirantes': 'imagen25',
+    'prod-camisa': 'imagen29',
+    'prod-corbatas': 'imagen26',
+    'prod-panuelos': 'imagen24'
   };
 
   /* Punto de enfoque de cada foto (para que no se corten las caras).
      Formato CSS: 'horizontal vertical'. Por defecto: 'center 20%'. */
-  var FOCUS = {
-    'imagen1': 'center 40%',
-    'imagen1 blancoynegro': 'center 18%',
-    'imagen2': 'center 35%',
-    'imagen2 blancoynegro': 'center 30%',
-    'imagen3': 'center 30%',
-    'imagen3 blancoynegro': 'center 50%',
-    'imagen4': 'center 30%',
-    'imagen5': 'center 22%',
-    'imagen6': 'center 45%',
-    'imagen6 blanco y negro': 'center 20%',
-    'imagen7': 'center 28%',
-    'imagen8': 'center 28%',
-    'imagen9': 'center 45%',
-    'imagen10': 'center 30%',
-    'imagen11': 'center 22%',
-    'imagen12': 'center 22%',
-    'imagen13': 'center 50%',
-    'imagen14': 'center 38%'
+   var FOCUS = {
+    'imagen1':  'center 20%',
+    'imagen2':  'center 20%',
+    'imagen3':  'center 20%',
+    'imagen4':  'center 25%',
+    'imagen5':  'center 20%',
+    'imagen6':  'center 25%',
+    'imagen7':  'center 20%',
+    'imagen8':  'center 20%',
+    'imagen9':  'center 20%',
+    'imagen10': 'center 20%',
+    'imagen11': 'center 18%',
+    'imagen12': 'center 18%',
+    'imagen13': 'center 20%',
+    'imagen14': 'center 18%',
+    'imagen15': 'center 20%',
+    'imagen16': 'center 20%',
+    'imagen17': 'center 20%',
+    'imagen18': 'center 20%',
+    'imagen19': 'center 20%',
+    'imagen20': 'center 18%',
+    'imagen21': 'center 50%',
+    'imagen22': 'center 18%',
+    'imagen23': 'center 20%',
+    'imagen24': 'center 50%',
+    'imagen25': 'center 22%',
+    'imagen26': 'center 50%',
+    'imagen27': 'center 20%',
+    'imagen28': 'center 40%',
+    'imagen29': 'center 30%'
   };
-
+ 
   var SIL = '<svg class="sil" viewBox="0 0 120 150" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" aria-hidden="true">' +
     '<path d="M42 6l-26 14-10 44 16 6 4 62h28V30z"/><path d="M78 6l26 14 10 44-16 6-4 62H66V30z"/>' +
     '<path d="M42 6l18 34 18-34"/><path d="M60 40v100"/><circle cx="60" cy="88" r="1.8" fill="currentColor"/><circle cx="60" cy="108" r="1.8" fill="currentColor"/></svg>';
-
-  var money = function (n) { return n.toLocaleString('es-ES') + ' €'; };
+ 
+  var money = function (n) { return n.toLocaleString('es-ES') + ' €'; }; 
 
   /* ---------------------------------------------------------
      Carga de imágenes: prueba extensiones y variantes del nombre
@@ -125,7 +143,7 @@
       });
     });
   }
-
+ 
   /* Fondos con foto (data-bg) */
   $$('[data-bg]').forEach(function (el) {
     var name = el.getAttribute('data-bg');
@@ -147,8 +165,8 @@
     { id: 9,  cat: 'traje',   catName: 'Traje',    name: 'Traje burdeos',              price: 260, img: 'prod-traje-burdeos', c1: '#7a2338', c2: '#3b0f1c', desc: 'Burdeos intenso para los que quieren salirse del trío de azul, negro y gris. Un traje con carácter.', list: ['Solapa de pico', 'Forro a contraste', 'Corbata violeta o dorada', 'Ajustes a tu medida'] },
     { id: 10, cat: 'traje',   catName: 'Traje',    name: 'Traje cruzado azul marino',  price: 285, img: 'prod-traje-cruzado', c1: '#1b2a52', c2: '#0a1124', desc: 'Doble botonadura en azul marino. Silueta clásica con aire contemporáneo, ideal para estilizar.', list: ['Doble botonadura', 'Solapa de pico', 'Botones de nácar', 'Ajustes a tu medida'] },
     { id: 11, cat: 'traje',   catName: 'Traje',    name: 'Traje gris de cuadros',      price: 255, img: 'prod-traje-cuadros', c1: '#9a9fa5', c2: '#4b5157', desc: 'Gris con cuadro ventana en tres piezas. Un estampado sutil, muy en línea con las tendencias de la temporada.', list: ['Chaleco a juego', 'Estampado sutil', 'Perfecto con corbata azul', 'Ajustes a tu medida'] },
-    { id: 12, cat: 'complementos', catName: 'Complementos', name: 'Pajaritas de seda',     price: 24, img: 'prod-pajaritas', c1: '#6e1f4f', c2: '#2a0b1e', desc: 'Pajaritas de seda en azul, verde, burdeos, plata y estampados. Para chaqué o traje.', list: ['Varios colores', 'Ajustables', 'Disponible en tienda'] },
-    { id: 13, cat: 'complementos', catName: 'Complementos', name: 'Tirantes de lujo',      price: 29, img: 'prod-tirantes',  c1: '#2a2a2a', c2: '#0f0f0f', desc: 'Tirantes elásticos en negro, azul, gris y beige. El detalle clásico que remata un look de gala.', list: ['Varios colores', 'Herrajes plateados', 'Disponible en tienda'] },
+    { id: 12, cat: 'traje', catName: 'Traje', name: 'Traje Verde Oscuro',     price: 280, img: 'prod-pajaritas', c1: '#6e1f4f', c2: '#2a0b1e', desc: 'Verde oscuro con un acabado liso y elegante. Una opción moderna y sofisticada para ceremonias con personalidad.', list: ['Doble Boton', 'Chaleco a juego', 'Sin Estampados', 'Perfecto con corbata roja', 'Ajustes a tu medida'] },
+    { id: 13, cat: 'complementos', catName: 'Complementos', name: 'Chalecos',      price: 90, img: 'prod-tirantes',  c1: '#2a2a2a', c2: '#0f0f0f', desc: 'Chalecos en negro, azul, gris y beige. El detalle clásico que remata un look de gala.', list: ['Varios colores', 'Para Cada Ocacion', 'Disponible en tienda'] },
     { id: 14, cat: 'complementos', catName: 'Complementos', name: 'Camisas',                price: 69, img: 'prod-camisa',    c1: '#d9dde2', c2: '#8d96a0', desc: 'Camisas blancas o de color que se adaptan a tu estilo. Con cuello italiano, cuello para pajarita o puños franceses.', list: ['Tejidos de algodón', 'Cuello y puño a elegir', 'Para tu estilo'] },
     { id: 15, cat: 'complementos', catName: 'Complementos', name: 'Corbatas y plastrones', price: 35, img: 'prod-corbatas',  c1: '#2f4f8a', c2: '#101e3a', desc: 'Corbatas de cachemir, gris perla para ceremonias y plastrones para chaqué. Anchas, como manda el protocolo.', list: ['Cachemir y seda', 'Plastrón para chaqué', 'Pañuelos a juego'] },
     { id: 16, cat: 'complementos', catName: 'Complementos', name: 'Pañuelos y gemelos',    price: 18, img: 'prod-panuelos',  c1: '#a8872a', c2: '#5c4a12', desc: 'Pañuelos de bolsillo y gemelos para rematar el traje con un guiño de color y elegancia.', list: ['Pañuelos lisos y estampados', 'Gemelos plateados y dorados', 'Disponible en tienda'] }
@@ -175,24 +193,35 @@
      (archivo sin extensión, texto, tipo)
      --------------------------------------------------------- */
   var LOOKS = [
-    { f: 'imagen1 blancoynegro',   t: 'Elegancia en blanco y negro', k: 'bn' },
-    { f: 'imagen12',               t: 'Negro sobre gris claro',       k: 'color' },
-    { f: 'imagen2',                t: 'Pajarita verde y chaleco',     k: 'color' },
-    { f: 'imagen6 blanco y negro', t: 'Retrato clásico',              k: 'bn' },
-    { f: 'imagen11',               t: 'Azul sobre fondo azul',        k: 'color' },
-    { f: 'imagen3',                t: 'Traje gris en otoño',          k: 'color' },
-    { f: 'imagen2 blancoynegro',   t: 'Detalle de solapa',            k: 'bn' },
-    { f: 'imagen13',               t: 'En el escaparate',             k: 'color' },
-    { f: 'imagen8',                t: 'Azul grisáceo entre plantas',  k: 'color' },
-    { f: 'imagen3 blancoynegro',   t: 'El último ajuste',             k: 'bn' },
-    { f: 'imagen10',               t: 'Chaleco crema, tono tierra',   k: 'color' },
-    { f: 'imagen4',                t: 'Paño negro en maniquí',        k: 'color' },
-    { f: 'imagen6',                t: 'Traje gris claro de día',      k: 'color' },
-    { f: 'imagen7',                t: 'Sentado con clase',            k: 'color' },
-    { f: 'imagen5',                t: 'Corbata y camisa blanca',      k: 'color' },
-    { f: 'imagen9',                t: 'Chaqueta colgada, detalle',    k: 'color' },
-    { f: 'imagen14',               t: 'Silueta bajo el foco',              k: 'color' },
-    { f: 'imagen1',                t: 'Entrada de gala',              k: 'color' }
+    { f: 'imagen28', t: 'Cena con traje de tweed',          k: 'color' },
+    { f: 'imagen14', t: 'Azul de tres piezas',              k: 'color' },
+    { f: 'imagen9',  t: 'Burdeos, aire de dandi',           k: 'color' },
+    { f: 'imagen5',  t: 'Tweed beige de tres piezas',       k: 'color' },
+    { f: 'imagen18', t: 'Verde botella con chaleco',        k: 'color' },
+    { f: 'imagen26', t: 'Plastrón con alfiler',             k: 'color' },
+    { f: 'imagen1',  t: 'Gris perla y corbata burdeos',     k: 'color' },
+    { f: 'imagen6',  t: 'Azul marino entre flores rojas',   k: 'color' },
+    { f: 'imagen17', t: 'Beige ante la puerta de madera',   k: 'color' },
+    { f: 'imagen23', t: 'Burdeos de cuerpo entero',         k: 'color' },
+    { f: 'imagen24', t: 'Verde con corbata amarilla',       k: 'color' },
+    { f: 'imagen16', t: 'Azul noche entre estatuas',        k: 'color' },
+    { f: 'imagen3',  t: 'Verde botella, mirada al frente',  k: 'color' },
+    { f: 'imagen4',  t: 'Paño negro, corte largo',          k: 'color' },
+    { f: 'imagen11', t: 'Burdeos, primer plano',            k: 'color' },
+    { f: 'imagen13', t: 'El gesto de abrocharse la americana', k: 'color' },
+    { f: 'imagen27', t: 'Beige clásico',                    k: 'color' },
+    { f: 'imagen19', t: 'Chaleco cruzado en azul',          k: 'color' },
+    { f: 'imagen25', t: 'Verde en el vestíbulo del hotel',  k: 'color' },
+    { f: 'imagen21', t: 'Paseo por la plaza',               k: 'color' },
+    { f: 'imagen10', t: 'Gris claro y palmeras',            k: 'color' },
+    { f: 'imagen7',  t: 'Burdeos ante piedra labrada',      k: 'color' },
+    { f: 'imagen22', t: 'Azul marino, pose segura',         k: 'color' },
+    { f: 'imagen15', t: 'Tweed beige junto a la fuente',    k: 'color' },
+    { f: 'imagen2',  t: 'Verde oscuro entre estatuas',      k: 'color' },
+    { f: 'imagen20', t: 'Burdeos, mirada lateral',          k: 'color' },
+    { f: 'imagen29', t: 'El último botón',                  k: 'color' },
+    { f: 'imagen8',  t: 'Burdeos entre palmeras',           k: 'color' },
+    { f: 'imagen12', t: 'Verde oscuro de cuerpo entero',    k: 'color' }
   ];
 
   /* ---------------------------------------------------------
