@@ -36,7 +36,7 @@ body {
   background: var(--ivory);
   line-height: 1.65;
   -webkit-font-smoothing: antialiased;
-  overflow-x: hidden;
+  /*overflow-x: hidden;*/
 }
 img { max-width: 100%; display: block; }
 a { color: inherit; text-decoration: none; }
@@ -538,7 +538,9 @@ body.lock { overflow: hidden; }
   .nav a:not(.btn) { width: 100%; padding: .65rem 0; line-height: 1.15; }
   .offer-inner, .guide, .contact { grid-template-columns: 1fr; }
   .offer-price { order: -1; width: 240px; }
-  .panel { grid-template-columns: 1fr; grid-template-rows: 200px 1fr; }
+  .panel { grid-template-columns: 1fr; grid-template-rows: auto 1fr; }
+  .panel-media { min-height: 0; height: clamp(240px, 58vw, 380px); }
+  .panel-body { padding: 1.8rem 1.6rem 2rem; }
   
   
   
@@ -566,6 +568,14 @@ body.lock { overflow: hidden; }
   .grid { grid-template-columns: repeat(2, 1fr); gap: 1.4rem .8rem; }
   .card-info h3 { font-size: 1.15rem; }
   .quick { display: none; }
+
+  .panel-media { height: 280px; padding: 1.1rem; }
+  .panel-media span { font-size: 1.9rem; }
+  .panel-body { padding: 1.6rem 1.3rem 1.8rem; }
+  .panel-body h3 { font-size: 1.7rem; }
+  .guide-intro p { max-width: none; }
+  .tabs { max-width: none; }
+  .tab { font-size: 1.5rem; }
   
   
   .section-head-row { flex-direction: column; align-items: flex-start; }
