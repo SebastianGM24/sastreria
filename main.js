@@ -21,24 +21,24 @@
   var SLOTS = {
     // Portada (fotos apaisadas, funcionan mejor en el hero)
     'hero-1': 'imagen28',
-    'hero-2': 'imagen6',
+    // IMAGEN DE CHAQUÉ OCULTA: 'hero-2': 'imagen6',
     'hero-3': 'imagen21',
-    'oferta': 'imagen21',
+    // IMAGEN DE CHAQUÉ OCULTA: 'oferta': 'imagen21',
     'camiseria': 'imagen29',
  
     // Categorías
     'cat-trajes': 'imagen14',
-    'cat-chaques': 'imagen4',
+    // IMAGEN DE CHAQUÉ OCULTA: 'cat-chaques': 'imagen4',
     'cat-complementos': 'imagen24',
  
     // Guía de etiqueta
-    'guia-chaque': 'imagen4',
+    // IMAGEN DE CHAQUÉ OCULTA: 'guia-chaque': 'imagen4',
     'guia-traje': 'imagen14',
  
     // Productos
-    'prod-chaque-negro': 'imagen4',
-    'prod-chaque-azul': 'imagen16',
-    'prod-chaque-gris': 'imagen1',
+    // IMAGEN DE CHAQUÉ OCULTA: 'prod-chaque-negro': 'imagen4',
+    // IMAGEN DE CHAQUÉ OCULTA: 'prod-chaque-azul': 'imagen16',
+    // IMAGEN DE CHAQUÉ OCULTA: 'prod-chaque-gris': 'imagen1',
     'prod-traje-azul': 'imagen14',
     'prod-traje-beige': 'imagen5',
     'prod-traje-burdeos': 'imagen9',
@@ -155,6 +155,8 @@
 
   /* ---------------------------------------------------------
      CATÁLOGO (edita aquí nombres, precios y fotos)
+     Los precios siguen aquí como datos, pero NO se muestran
+     en la web (ver renderGrid y openModal).
      --------------------------------------------------------- */
   var PRODUCTS = [
     { id: 1,  cat: 'chaque',  catName: 'Chaqué',   name: 'Chaqué negro clásico',      price: 298, old: 420, offer: true, img: 'prod-chaque-negro',  c1: '#2b2b2b', c2: '#0c0c0c', desc: 'Chaqué de corte tradicional en paño negro, con pantalón de raya diplomática. La máxima etiqueta para ceremonias de mañana y tarde.', list: ['Chaqué, chaleco y pantalón de raya', 'Cuello y solapa clásicos', 'Ajustes a tu medida', 'Prueba en tienda'] },
@@ -390,13 +392,17 @@
   function renderGrid() {
     var list = visibleProducts();
     grid.innerHTML = list.map(function (p, i) {
+      /* PRECIOS OCULTOS
       var priceHtml = p.old ? '<s>' + money(p.old) + '</s>' + money(p.price) : (p.cat === 'complementos' ? 'desde ' : '') + money(p.price);
+      */
       return '<button class="card" data-id="' + p.id + '" style="--i:' + i + '" aria-label="Ver ' + p.name + '">' +
         '<div class="card-media" style="--c1:' + p.c1 + ';--c2:' + p.c2 + '">' + SIL +
         '<img data-slot="' + p.img + '" alt="' + p.name + '" decoding="async">' +
         (p.offer ? '<span class="badge-offer">Ofertón</span>' : '') +
         '<span class="quick">Ver detalle</span></div>' +
-        '<div class="card-info"><small>' + p.catName + '</small><h3>' + p.name + '</h3><span class="price">' + priceHtml + '</span></div>' +
+        '<div class="card-info"><small>' + p.catName + '</small><h3>' + p.name + '</h3>' +
+        /* '<span class="price">' + priceHtml + '</span>' + */
+        '</div>' +
         '</button>';
     }).join('');
     hydrateImages(grid);
@@ -430,10 +436,12 @@
     hydrateImages(media);
     $('#mCat').textContent = p.catName;
     $('#mTitle').textContent = p.name;
-    $('#mPrice').innerHTML = (p.old ? '<s style="color:var(--muted);font-size:1.2rem;margin-right:.5rem">' + money(p.old) + '</s>' : '') + money(p.price);
+    // PRECIO OCULTO
+    // $('#mPrice').innerHTML = (p.old ? '<s style="color:var(--muted);font-size:1.2rem;margin-right:.5rem">' + money(p.old) + '</s>' : '') + money(p.price);
     $('#mDesc').textContent = p.desc;
     $('#mList').innerHTML = p.list.map(function (t) { return '<li>' + t + '</li>'; }).join('');
-    var msg = 'Hola, me interesa «' + p.name + '» (' + money(p.price) + '). ¿Podéis darme información sobre disponibilidad y tallas?';
+    // var msg = 'Hola, me interesa «' + p.name + '» (' + money(p.price) + '). ¿Podéis darme información sobre disponibilidad y tallas?';
+    var msg = 'Hola, me interesa «' + p.name + '». ¿Podéis darme información sobre disponibilidad y tallas?';
     $('#mWa').href = 'https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(msg);
     modal.classList.add('open');
     modal.setAttribute('aria-hidden', 'false');

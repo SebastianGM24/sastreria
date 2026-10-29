@@ -76,7 +76,7 @@
           <div class="container slide-content">
             <p class="eyebrow" data-anim>Sastrería · Valencia</p>
             <h1 data-anim>Elegancia que<br><em>no pasa de moda</em></h1>
-            <p class="lead" data-anim>Trajes de hombre, con el corte clásico de siempre y el pulso de la temporada 2027.</p>
+            <p class="lead" data-anim>Trajes de hombre, con el corte clásico de siempre y la tendencia de la temporada 2027.</p>
             <div class="actions" data-anim>
               <a href="#coleccion" class="btn btn-gold">Ver colección</a>
               <a href="#contacto" class="btn btn-ghost">Solicitar información</a>
@@ -186,8 +186,10 @@
             <label class="select"><span class="sr">Ordenar por</span>
               <select id="sort" aria-label="Ordenar por">
                 <option value="rec">Recomendados</option>
+                <!-- PRECIOS OCULTOS: opciones de orden por precio desactivadas
                 <option value="asc">Precio: de menor a mayor</option>
                 <option value="desc">Precio: de mayor a menor</option>
+                -->
                 <option value="az">Nombre (A–Z)</option>
               </select>
             </label>
@@ -218,7 +220,7 @@
       <div class="container offer-inner">
         <div class="offer-text reveal">
           <p class="eyebrow">Ofertón de temporada</p>
-          <h2>Chaqué<br><em>completo</em></h2>
+          <h2>Chaqué<br></h2>
           <p>Elige entre nuestros chaqués en oferta. Corte clásico, paño de calidad y ajustes a tu medida.</p>
           <ul class="offer-list">
             <li><svg width="18" height="18"><use href="#i-check"/></svg>Chaqués en negro, azul y gris</li>
@@ -464,7 +466,7 @@
             <li>
               <svg width="22" height="22"><use href="#i-clock"/></svg>
               <!-- EDITA AQUÍ EL HORARIO REAL -->
-              <div><b>Horario</b><span>Lun–Vie 10:30–14:00 y 17:00–20:00<br>Sáb 10:30–20:00</span></div>
+              <div><b>Horario</b><span>Lun–Sáb 10:30–14:00 y 17:00–20:00</span></div>
             </li>
           </ul>
 
@@ -552,7 +554,9 @@
       <div class="modal-body">
         <p class="eyebrow" id="mCat"></p>
         <h3 id="mTitle"></h3>
+        <!-- PRECIO OCULTO
         <p class="modal-price" id="mPrice"></p>
+        -->
         <p id="mDesc"></p>
         <ul class="modal-list" id="mList"></ul>
         <div class="actions">
