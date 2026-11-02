@@ -802,8 +802,8 @@ body.lock { overflow: hidden; }
 }
 
 /* ---------- Logo (réplica de la tarjeta) ---------- */
-:root { --header-h: 96px; }
-.header.scrolled { height: 84px; }
+:root { --header-h: 124px; }
+.header.scrolled { height: 96px; }
 .logo-mark {
   display: block; height: 104px; width: auto; aspect-ratio: 400 / 220;
   color: var(--gold); overflow: visible;
@@ -814,8 +814,8 @@ body.lock { overflow: hidden; }
 .logo-footer .logo-mark { height: 120px; }
 
 @media (max-width: 640px) {
-  :root { --header-h: 80px; }
-  .header.scrolled { height: 72px; }
+  :root { --header-h: 96px; }
+  .header.scrolled { height: 80px; }
   .logo-mark { height: 70px; }
   .header.scrolled .logo-mark { height: 64px; }
   .logo-footer .logo-mark { height: 100px; }
