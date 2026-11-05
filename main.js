@@ -27,22 +27,22 @@
     'camiseria': 'imagen29',
  
     // Categorías
-    'cat-trajes': 'imagen14',
+    'cat-trajes': 'imagen30',
     // IMAGEN DE CHAQUÉ OCULTA: 'cat-chaques': 'imagen4',
     'cat-complementos': 'imagen24',
  
     // Guía de etiqueta
     // IMAGEN DE CHAQUÉ OCULTA: 'guia-chaque': 'imagen4',
-    'guia-traje': 'imagen14',
+    'guia-traje': 'imagen30',
  
     // Productos
     // IMAGEN DE CHAQUÉ OCULTA: 'prod-chaque-negro': 'imagen4',
     // IMAGEN DE CHAQUÉ OCULTA: 'prod-chaque-azul': 'imagen16',
     // IMAGEN DE CHAQUÉ OCULTA: 'prod-chaque-gris': 'imagen1',
-    'prod-traje-azul': 'imagen14',
+    'prod-traje-azul': 'imagen30',
     'prod-traje-beige': 'imagen5',
     'prod-traje-burdeos': 'imagen9',
-    'prod-traje-cruzado': 'imagen19',
+    'prod-traje-cruzado': 'imagen30',
     'prod-traje-cuadros': 'imagen10',
     'prod-pajaritas': 'imagen3',
     'prod-tirantes': 'imagen25',
@@ -82,7 +82,8 @@
     'imagen26': 'center 50%',
     'imagen27': 'center 20%',
     'imagen28': 'center 40%',
-    'imagen29': 'center 30%'
+    'imagen29': 'center 30%',
+    'imagen30': 'center 20%'
   };
  
   var SIL = '<svg class="sil" viewBox="0 0 120 150" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" aria-hidden="true">' +
@@ -196,7 +197,6 @@
      --------------------------------------------------------- */
   var LOOKS = [
     { f: 'imagen28', t: 'Cena con traje de tweed',          k: 'color' },
-    { f: 'imagen14', t: 'Azul de tres piezas',              k: 'color' },
     { f: 'imagen9',  t: 'Burdeos, aire de dandi',           k: 'color' },
     { f: 'imagen5',  t: 'Tweed beige de tres piezas',       k: 'color' },
     { f: 'imagen18', t: 'Verde botella con chaleco',        k: 'color' },
@@ -212,7 +212,6 @@
     { f: 'imagen11', t: 'Burdeos, primer plano',            k: 'color' },
     { f: 'imagen13', t: 'El gesto de abrocharse la americana', k: 'color' },
     { f: 'imagen27', t: 'Beige clásico',                    k: 'color' },
-    { f: 'imagen19', t: 'Chaleco cruzado en azul',          k: 'color' },
     { f: 'imagen25', t: 'Verde en el vestíbulo del hotel',  k: 'color' },
     { f: 'imagen21', t: 'Paseo por la plaza',               k: 'color' },
     { f: 'imagen10', t: 'Gris claro y palmeras',            k: 'color' },
@@ -223,7 +222,8 @@
     { f: 'imagen20', t: 'Burdeos, mirada lateral',          k: 'color' },
     { f: 'imagen29', t: 'El último botón',                  k: 'color' },
     { f: 'imagen8',  t: 'Burdeos entre palmeras',           k: 'color' },
-    { f: 'imagen12', t: 'Verde oscuro de cuerpo entero',    k: 'color' }
+    { f: 'imagen12', t: 'Verde oscuro de cuerpo entero',    k: 'color' },
+    { f: 'imagen30', t: 'Azul marino junto al agua',        k: 'color' }
   ];
 
   /* ---------------------------------------------------------
